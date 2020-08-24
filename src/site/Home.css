@@ -1,0 +1,214 @@
+.title-holder {
+	margin-top: 6rem;
+	text-align: center;
+	font-family: var(--main-btn-font);
+	color: var(--main-heading-color);
+	position: relative;
+}
+.title-holder p span {
+	font-size: 4rem;
+	font-family: var(--main-heading-font);
+}
+@media only screen and (max-width: 600px) {
+	.title-holder p span {
+		font-size: 3rem;
+	}
+}
+@media only screen and (max-width: 400px) {
+}
+.title-holder .react-img-left {
+	width: 4rem;
+	position: absolute;
+	top: 5rem;
+	left: 5rem;
+	opacity: .5;
+}
+.title-holder .react-img-right {
+	width: 4rem;
+	position: absolute;
+	top: 1rem;
+	right: 5rem;
+	opacity: .5;
+}
+.react-img-right img,
+.react-img-left img {
+	width: 100%;
+}
+.react-img-right,
+.react-img-left {
+	transition: transform .4s ease;
+}
+@media only screen and (min-width: 500px) {
+.react-img-left.spin,
+.react-img-right.spin {
+	-webkit-animation: spin_delay 10s linear infinite;
+	animation: spin_delay 10s linear infinite;
+}
+}
+	
+@media only screen and (max-width: 500px) {
+	.react-img-left {
+		transform: translateX(-5em);
+	}
+	.react-img-right {
+		transform: translateX(5em);
+	}
+}
+/* .r-img-alltrans {
+	transform: rotateY(var(--rotateAmount));
+} */
+/* cube image thing */
+.background-holder {
+	margin-top: 3rem;
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: contain;
+	height: 15rem;
+	background-image: url('/images/background1.png');
+	background-color: transparent;
+	opacity: .8;
+}
+.hello {
+	/* text-align: center; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2rem;
+}
+/* intro */
+.little-boy {
+	max-width: 6rem;
+	/* margin: 0 auto;
+	margin-top: 2rem; */
+}
+.little-boy img {
+	width: 100%;
+}
+.p-hello {
+	font-family: var(--main-btn-font);
+	font-size: 2rem;
+	color: var(--main-heading2-color);
+	margin: .5rem 0;
+}
+
+.hello-p {
+	font-family: var(--main-text-font);
+	max-width: 20rem;
+	font-size: 1rem;
+	color: var(--default-text-color);
+}
+.hello-p p {
+	margin-top: 0;
+}
+.what-do {
+	font-size: 2.5rem;
+	font-weight: 300;
+	text-align: center;
+	font-family: var(--main-text-font);
+	color: var(--main-heading-color);
+}
+.develope {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 0 1em;
+}
+.dev-img {
+	width: 6rem;
+}
+.dev-img1 {
+	width: 3rem;
+}
+.dev-img > img,
+.dev-img1 > img {
+	width: 100%;
+}
+.dev {
+	font-family: var(--main-text-font);
+	max-width: 20rem;
+	font-size: 1rem;
+	color: var(--default-text-color);
+}
+.dev > h3 {
+	font-family: var(--main-btn-font);
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: var(--main-heading2-color);
+	margin: .5rem 0;
+}
+.design {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 0 1em;
+}
+.des-img {
+	width: 6rem;
+}
+.des-img1 {
+	width: 3rem;
+}
+.des-img > img,
+.des-img1 > img {
+	width: 100%;
+}
+.des {
+	font-family: var(--main-text-font);
+	max-width: 20rem;
+	font-size: 1rem;
+	color: var(--default-text-color);
+}
+.des > h3 {
+	font-family: var(--main-btn-font);
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: var(--main-heading2-color);
+	margin: .5rem 0;
+}
+
+.design + h2 {
+	font-size: 2.5rem;
+	font-weight: 300;
+	text-align: center;
+	font-family: var(--main-text-font);
+	color: var(--main-heading-color);
+}
+.available {
+	font-family: var(--main-btn-font);
+	font-size: 1.6rem;
+	font-weight: 300;
+	color: var(--main-heading2-color);
+	margin: .5rem 0;
+	text-align: center;
+}
+.available1 {
+	font-family: var(--main-text-font);
+
+	font-size: 1rem;
+	color: var(--default-text-color);
+}
+.available1 > p {
+	max-width: 20rem;
+	margin: 0 auto;
+}
+.contactBtn {
+	font-family: var(--main-text-font);
+	margin: 5em auto;
+	display: block;
+	height: 3em;
+	width: 15rem;
+	padding: 1.5em auto;
+
+	background-color: var(--main-heading-color);
+	border: none;
+	border-radius: 3px;
+
+	letter-spacing: 0.4em;
+	transition: all 0.2s cubic-bezier(.4, 0, .2, 1);
+	color: white;
+}
+.contactBtn:hover {
+	letter-spacing: 0.6em;
+	background-color: var(--main-heading2-color);
+}
