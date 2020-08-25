@@ -1,4 +1,4 @@
-.App {
+/* .App {
     text-align: center;
   }
   
@@ -46,4 +46,77 @@
   .delete-button {
     color: red;
     cursor: pointer;
-  }
+  } */
+:root {
+	--main-bg-color: #c0ffd3;
+	--main-heading-color: #237873;
+	--main-heading2-color: #52de97;
+	--main-contrast-color: #ffba5a;
+
+	--main-heading-font: 'Great Vibes', cursive;
+	--main-btn-font: 'Montserrat', sans-serif;
+	--main-text-font: 'Open Sans', sans-serif;
+
+	--default-text-color: #545454;
+
+	--rotateAmount: 360deg;
+}
+img.loading_arrow {
+	-webkit-animation: spin_delay 1.5s linear infinite;
+	animation: spin_delay 1.5s linear infinite;
+}
+
+@keyframes spin_delay {
+	0% {
+		-webkit-transform-origin: center;
+		-ms-transform-origin: center;
+		transform-origin: center;
+		-webkit-transform: rotate3d(0, 1, 0, 0deg);
+		-ms-transform: rotate3d(0, 1, 0, 0deg);
+		transform: rotate3d(0, 1, 0, 0deg);
+	}
+	25% {
+		-webkit-transform: rotate3d(0, 1, 0, 90deg);
+		-ms-transform: rotate3d(0, 1, 0, 90deg);
+		transform: rotate3d(0, 1, 0, 90deg);
+	}
+
+	50% {
+		-webkit-transform: rotate3d(0, 1, 0, 180deg);
+		-ms-transform: rotate3d(0, 1, 0, 180deg);
+		transform: rotate3d(0, 1, 0, 180deg);
+	}
+	75% {
+		-webkit-transform: rotate3d(0, 1, 0, 270deg);
+		-ms-transform: rotate3d(0, 1, 0, 270deg);
+		transform: rotate3d(0, 1, 0, 270deg);
+	}
+	100% {
+		-webkit-transform: rotate3d(0, 1, 0, 360deg);
+		-ms-transform: rotate3d(0, 1, 0, 360deg);
+		transform: rotate3d(0, 1, 0, 360deg);
+	}
+}
+body {
+	margin: 0;
+	background-image: linear-gradient(to bottom, var(--main-bg-color), #fff);
+	font-family: 'Open Sans', sans-serif;
+	background-attachment: fixed;
+	/* min-height: 100%; */
+}
+.form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+input,
+select,
+textarea {
+	padding: 0.4em 0.2em;
+	font-size: 1.2rem;
+}
+
+.active {
+	font-weight: bold;
+}
