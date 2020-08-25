@@ -10,7 +10,7 @@ type Mutation{
 }
 type User{
     id:ID!
-    name:String!
+    name:String
     email:String!
     password:String!
     role:roleState

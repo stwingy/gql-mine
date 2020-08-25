@@ -2,20 +2,21 @@ import React from 'react'
 import { gql, useMutation } from "@apollo/client";
 import {useAuthState, useAuthDispatch} from './AuthContext'
 //import{isLoggedInVar} from './cache.ts'
-const SIGNUP_USER =gql(`
-mutation CreateUser($name:String!,$email:String!,$password:String!){
-    createUser(name:$name,email:$email,password:$password){
+const SIGNIN_USER =gql(`
+mutation signIn($email:String!,$password:String!){
+    signIn(email:$email,password:$password){
+        user{
+            id
+        }
     token
-    user{
-        id
-    }
+  
   }
 }`)
 
-function Signup() {
-    const initialState = {name:"",email:"",password:"",passwordconfirmation:""}
+function Signin() {
+    const initialState = {email:"",password:""}
     const [state,setState] = React.useState(initialState)
-    const[createUser,{loading: mutationLoading,error: mutationError,...data}] =useMutation(SIGNUP_USER)
+    const[signIn,{loading: mutationLoading,error: mutationError,...data}] =useMutation(SIGNIN_USER)
  const {isAuth} = useAuthState()
  const dispatch = useAuthDispatch()
  console.log("isAuth",isAuth)
@@ -28,15 +29,14 @@ function Signup() {
             }
             const handleSubmit =(e)=>{
                 e.preventDefault()
-                const {name,email,password}=state
-                createUser({variables:{name,email,password}})
+                const {email,password}=state
+                console.log(email,password)
+                signIn({variables:{email,password}})
                  .then(({data})=>{
                  console.log("data",data)
-         localStorage.setItem('token',data.createUser.token)
+         localStorage.setItem('token',data.signIn.token)
          dispatch({type:"login"})
-        //  console.log(isLoggedInVar())
-        //  isLoggedInVar(true)
-        //  console.log(isLoggedInVar())
+      
                  setState(initialState)
                
              })
@@ -46,12 +46,12 @@ function Signup() {
     return (
       
                  <div className="form-app">
-         <h2 >Sign Up</h2>
+         <h2 >Sign In</h2>
 <form className = "form" onSubmit={handleSubmit}>
-    <input type="text" name = "name" placeholder ="User Name" value={state.name} onChange={handleChange}/>
+
     <input type="email" name = "email" placeholder ="Email Address" value={state.email}  onChange={handleChange}/>
     <input type="password" name = "password" placeholder ="Password" value={state.password}  onChange={handleChange}/>
-    <input type="password" name = "passwordconfirmation" placeholder ="Confirm Password" value={state.passwordconfirmation}  onChange={handleChange}/>
+
     <button type = "submit" className = "button-primary" disabled={mutationLoading || validateForm()}>Submit</button>
     {mutationLoading && <p>Loading...</p>}
     {mutationError && <p>Error : Please try again {mutationError.message}</p>}
@@ -60,4 +60,4 @@ function Signup() {
     )
 }
 
-export default Signup
+export default Signin

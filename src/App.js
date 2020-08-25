@@ -3,6 +3,7 @@ import './App.css';
 
 import { BrowserRouter as Router, Switch, Route, Link, Redirect, useHistory, useLocation } from 'react-router-dom';
 import Signup from './Signup';
+import Signin from './Signin';
 import Logout from './Logout';
 import Home from './site/Home';
 import Nav from './site/Nav';
@@ -17,7 +18,7 @@ function App() {
 					<Nav />
 					<Switch>
 						<Route path="/signup">
-							<Signup />
+							<Signin />
 						</Route>
 						<Route path="/logout">
 							<Logout />

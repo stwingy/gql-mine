@@ -8,7 +8,7 @@ const resolvers = {
 	},
 	Mutation: {
 		createUser: async (parent, { name, email, password }, { User, createToken }) => {
-			const checkUser = await User.findOne({ name });
+			const checkUser = await User.findOne({ email });
 			if (checkUser) {
 				throw new Error('User already exists');
 			}
@@ -22,8 +22,8 @@ const resolvers = {
 			return { token, user };
         },
         signIn:async(parent, {email,password}, {User, createToken})=> {
-            const user = await User.findOne({email,password})
-      
+            const user = await User.findOne({email})
+      console.log("user",user,"email",email)
             if (!user) {
               throw new Error('nope')  
             }
