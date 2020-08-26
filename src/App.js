@@ -2,23 +2,26 @@ import React from 'react';
 import './App.css';
 
 import { BrowserRouter as Router, Switch, Route, Link, Redirect, useHistory, useLocation } from 'react-router-dom';
-import Signup from './Signup';
-import Signin from './Signin';
+
+import Sign from './Sign';
 import Logout from './Logout';
 import Home from './site/Home';
 import Nav from './site/Nav';
+import Footer from './Footer'
 import ProtectedPage from './ProtectedPage';
 import { PrivateRoute } from './PrivateRoute';
 import { AuthProvider, useAuthState } from './AuthContext';
 function App() {
 	return (
-		<div className="App">
+		<div className="MainApp">
+			
 			<Router>
 				<AuthProvider>
 					<Nav />
+					<div className ='SubApp'>
 					<Switch>
-						<Route path="/signup">
-							<Signin />
+						<Route path="/sign">
+							<Sign />
 						</Route>
 						<Route path="/logout">
 							<Logout />
@@ -30,9 +33,12 @@ function App() {
 							<ProtectedPage />
 						</PrivateRoute>
 					</Switch>
+					</div>
+					<Footer/>
 				</AuthProvider>
 			</Router>
-		</div>
+			</div>
+		
 	);
 }
 

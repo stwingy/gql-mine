@@ -193,6 +193,7 @@
 	margin: 0 auto;
 }
 .contactBtn {
+	z-index: 3;
 	font-family: var(--main-text-font);
 	margin: 5em auto;
 	display: block;
@@ -211,4 +212,11 @@
 .contactBtn:hover {
 	letter-spacing: 0.6em;
 	background-color: var(--main-heading2-color);
+}
+.above{
+	z-index: 300;
+}
+.sm{
+	margin-top: 3em;
+	margin-bottom: 3em;
 }

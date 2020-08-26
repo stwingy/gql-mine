@@ -9,12 +9,12 @@ function Logout() {
 		localStorage.clear();
 		//client.cache.reset()
 		client.cache.gc();
-		dispatch('logout');
+		dispatch({type:'logout'});
 		//isLoggedInVar(false)
 	};
 	return (
 		<div>
-			<button onClick={handleClick}>Logout</button>
+			<button className = "contactBtn sm" onClick={handleClick}>Logout</button>
 		</div>
 	);
 }

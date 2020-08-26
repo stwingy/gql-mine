@@ -4,10 +4,10 @@ const AuthDispatchContext = React.createContext()
 function authReducer(state, action) {
   switch (action.type) {
     case 'login': {
-      return {isAuth:true }
+      return {...state,isAuth:true }
     }
     case 'logout': {
-      return {isAuth: false}
+      return {...state,isAuth: false}
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)

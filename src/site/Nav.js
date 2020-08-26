@@ -41,7 +41,7 @@ function Nav() {
 				<Link to="/">
 					<span>H</span>ome
 				</Link>
-				<Link to="/signup">
+				<Link to="/sign">
 					<span>S</span>ignup
 				</Link>
 

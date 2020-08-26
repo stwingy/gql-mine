@@ -1,0 +1,11 @@
+.footer{
+    height:5em;
+    background-color: var(--main-bg-color);
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+    /* flex-shrink: 0; */
+    position: fixed;
+    top:calc(100% - 5em);
+
+}

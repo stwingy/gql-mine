@@ -99,12 +99,24 @@ img.loading_arrow {
 }
 body {
 	margin: 0;
+	/* height:100vh; */
 	background-image: linear-gradient(to bottom, var(--main-bg-color), #fff);
 	font-family: 'Open Sans', sans-serif;
 	background-attachment: fixed;
-	/* min-height: 100%; */
+	 min-height: 100vh;
+	
 }
-.form-app{
+#root{
+	min-height: 100vh;
+}
+ .MainApp{
+	min-height: 100vh;
+} 
+.SubApp{
+	flex: 1 0 auto;
+} */
+
+.form-app,.form-app1{
 	text-align: center;
 	margin-top:5em;
 }
@@ -123,4 +135,14 @@ textarea {
 
 .active {
 	font-weight: bold;
+}
+h2{
+	color:var(--main-heading-color);
+	font-family:var(--main-text-font) ;
+}
+.invis{
+	display:none;
+}
+.lm{
+	margin-top:10em;
 }

@@ -83,7 +83,7 @@ function Home() {
 <h2>I will help.</h2>
 <div className = "available"><p>Currently available for freelance work.</p></div>
 <div className = "available1"><p>If you have a project that you want to get started, think you need my help with something or just fancy saying hey, then get in touch.</p></div>
-<button className= "contactBtn">Contact Me</button>  
+<button className= "contactBtn above">Contact Me</button>  
         </div>
     )
 }

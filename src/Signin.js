@@ -45,14 +45,14 @@ function Signin() {
             
     return (
       
-                 <div className="form-app">
+                 <div className="form-app1">
          <h2 >Sign In</h2>
 <form className = "form" onSubmit={handleSubmit}>
 
     <input type="email" name = "email" placeholder ="Email Address" value={state.email}  onChange={handleChange}/>
     <input type="password" name = "password" placeholder ="Password" value={state.password}  onChange={handleChange}/>
 
-    <button type = "submit" className = "button-primary" disabled={mutationLoading || validateForm()}>Submit</button>
+    <button type = "submit" className = "contactBtn sm" disabled={mutationLoading || validateForm()}>Submit</button>
     {mutationLoading && <p>Loading...</p>}
     {mutationError && <p>Error : Please try again {mutationError.message}</p>}
 </form>

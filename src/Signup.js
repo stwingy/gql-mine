@@ -46,13 +46,13 @@ function Signup() {
     return (
       
                  <div className="form-app">
-         <h2 >Sign Up</h2>
+         <h2 >Register</h2>
 <form className = "form" onSubmit={handleSubmit}>
     <input type="text" name = "name" placeholder ="User Name" value={state.name} onChange={handleChange}/>
     <input type="email" name = "email" placeholder ="Email Address" value={state.email}  onChange={handleChange}/>
     <input type="password" name = "password" placeholder ="Password" value={state.password}  onChange={handleChange}/>
     <input type="password" name = "passwordconfirmation" placeholder ="Confirm Password" value={state.passwordconfirmation}  onChange={handleChange}/>
-    <button type = "submit" className = "button-primary" disabled={mutationLoading || validateForm()}>Submit</button>
+    <button type = "submit" className = "contactBtn sm" disabled={mutationLoading || validateForm()}>Submit</button>
     {mutationLoading && <p>Loading...</p>}
     {mutationError && <p>Error : Please try again {mutationError.message}</p>}
 </form>
