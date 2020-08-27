@@ -6,7 +6,7 @@ import {FaFacebook,FaTwitter,FaGithub,FaLinkedin} from "react-icons/fa"
 
   const StyledIcon = ({children,colour}) => {
     return (
-     <IconContext.Provider value={{ style: {fontSize: '30px', color: colour, marginTop:"1em"}}}>
+     <IconContext.Provider value={{ style: {fontSize: '2em', color: colour, marginTop:".5em"}}}>
          <div>
          {children}
          </div>

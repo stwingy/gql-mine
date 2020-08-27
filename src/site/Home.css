@@ -38,7 +38,7 @@
 .react-img-left {
 	transition: transform .4s ease;
 }
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 600px) {
 .react-img-left.spin,
 .react-img-right.spin {
 	-webkit-animation: spin_delay 10s linear infinite;

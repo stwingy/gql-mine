@@ -2,6 +2,7 @@ const { ApolloServer} = require('apollo-server');
 const {typeDefs} = require('./typeDefs')
 const {resolvers} =require( './resolvers.js')
 const User = require('./mongooseModelsUser')
+const Post = require('./mongooseModelsPost')
 const mongoose = require("mongoose")
 require('dotenv').config({path:'variables.env'})
 const {createToken, getUserFromToken} = require('./auth')
@@ -19,7 +20,7 @@ const server = new ApolloServer({ typeDefs,
         console.log(token)
         const user = getUserFromToken(token)
         //console.log("user",user)
-        return {User, user, createToken}
+        return {User, user, createToken,Post}
       }
  });
     
