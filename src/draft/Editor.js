@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import MakePost from './MakePost'
+import MakePost from './MakePost';
+
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -23,13 +24,11 @@ const ControlledEditor = () => {
 		});
 	};
 
-  const { editorState } = state;
-  const handleClick=()=>{
-  console.log ( JSON.stringify(convertToRaw(editorState.getCurrentContent())))
-  }
+	const { editorState } = state;
+
 	return (
 		<div>
-		
+			<MakePost post={convertToRaw(editorState.getCurrentContent())} />
 			<Editor
 				editorState={editorState}
 				wrapperClassName="demo-wrapper"

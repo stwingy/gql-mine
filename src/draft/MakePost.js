@@ -10,8 +10,18 @@ mutation MAKEPOST($body:JSON!){
 `)
 
 export default function MakePost(post) {
+    const initialState = {}
+    const [body,setBody] = React.useState(initialState)
+    React.useEffect(()=>{
+        setBody(JSON.stringify(post))
+    },[post])
+    const[makePost,{loading: mutationLoading,error: mutationError,...data}] =useMutation(MAKE_POST)
     function handleClick(){
 
+makePost({variables:{body}})
+.then(({data})=>{
+console.log(data)
+}).catch(e=>console.log(e))
     }
   return (
     <>
