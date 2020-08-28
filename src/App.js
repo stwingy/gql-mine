@@ -14,12 +14,16 @@ import { AuthProvider, useAuthState } from './AuthContext';
 function App() {
 	return (
 		<div >
-			<Editor/>
-			{/* <Router>
+		
+			<Router>
 				<AuthProvider>
 					<Nav />
+			
 					<div className ='SubApp'>
 					<Switch>
+					<Route path="/post">
+							<Editor />
+						</Route>
 						<Route path="/sign">
 							<Sign />
 						</Route>
@@ -36,7 +40,7 @@ function App() {
 					</div>
 					<Footer/>
 				</AuthProvider>
-			</Router> */}
+			</Router>
 			</div>
 		
 	);

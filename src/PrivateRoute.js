@@ -10,8 +10,8 @@ import {
 } from "react-router-dom";
 import {useAuthState} from './AuthContext'
 export const PrivateRoute=({ children, ...rest })=> {
-    const {isAuth}=useAuthState()
-    console.log("IA",isAuth)
+    const {isAuth,user}=useAuthState()
+    console.log("IA",isAuth,user)
     return (
       <Route
         {...rest}

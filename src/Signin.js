@@ -7,6 +7,10 @@ mutation signIn($email:String!,$password:String!){
     signIn(email:$email,password:$password){
         user{
             id
+            name
+            email
+            role
+            joinDate
         }
     token
   
@@ -35,7 +39,7 @@ function Signin() {
                  .then(({data})=>{
                  console.log("data",data)
          localStorage.setItem('token',data.signIn.token)
-         dispatch({type:"login"})
+         dispatch({type:"login",user:data.createUser.user})
       
                  setState(initialState)
                

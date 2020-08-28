@@ -21,8 +21,8 @@ const resolvers = {
 		}
 	},
 	Mutation: {
-		makePost: async(parent,{body},{Post})=>{
-const p = await new Post({body}).save()
+		makePost: async(parent,{body,title,user},{Post})=>{
+const p = await new Post({body,title,user}).save()
 return p
 		},
 		createUser: async (parent, { name, email, password }, { User, createToken }) => {

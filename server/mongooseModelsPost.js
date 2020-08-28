@@ -1,19 +1,25 @@
-const mongoose =require("mongoose")
+const mongoose = require('mongoose');
 //const bcrypt = require('bcrypt')
-const Schema= mongoose.Schema
+const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
- 
- body:{
-      type:Schema.Types.Mixed,
-      default:"POST"
-  },
-  joinDate:{
-    type:Date,
-    default:Date.now
-}
-  
-})
+	body: {
+		type: Schema.Types.Mixed,
+		default: 'POST'
+	},
+	postDate: {
+		type: Date,
+		default: Date.now
+	},
+	title: {
+    type: String,
+    required:true
+	},
+	user: {
+		type: [ Schema.Types.ObjectId ],
+		ref: 'User'
+	}
+});
 
 // UserSchema.pre('save', function(next){
 //     if(!this.isModified('password')){
@@ -29,4 +35,4 @@ const PostSchema = new Schema({
 // })
 //})
 
-module.exports = mongoose.model('Post',PostSchema)
+module.exports = mongoose.model('Post', PostSchema);

@@ -8,6 +8,10 @@ mutation CreateUser($name:String!,$email:String!,$password:String!){
     token
     user{
         id
+        name
+        email
+        role
+        joinDate
     }
   }
 }`)
@@ -33,7 +37,7 @@ function Signup() {
                  .then(({data})=>{
                  console.log("data",data)
          localStorage.setItem('token',data.createUser.token)
-         dispatch({type:"login"})
+         dispatch({type:"login",user:data.createUser.user})
         //  console.log(isLoggedInVar())
         //  isLoggedInVar(true)
         //  console.log(isLoggedInVar())

@@ -12,7 +12,7 @@ scalar JSON
 type Mutation{
     createUser(name:String!,email:String!,password:String!):AuthUser
     signIn(email:String!,password:String!):AuthUser
-    makePost(body:JSON!):Post
+    makePost(body:JSON!,title:String,user:ID):Post
 }
 type Post{
     id:ID
