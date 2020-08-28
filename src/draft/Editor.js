@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MakePost from './MakePost';
-
+import GetOnePost from './GetOnePost'
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -29,6 +29,7 @@ const ControlledEditor = () => {
 	return (
 		<div>
 			<MakePost post={convertToRaw(editorState.getCurrentContent())} />
+			<GetOnePost />
 			<Editor
 				editorState={editorState}
 				wrapperClassName="demo-wrapper"
