@@ -1,5 +1,5 @@
-console.log("js")
+console.log('js');
 window.onunload = () => {
-    // Clear the local storage
-    window.localStorage.clear()
- }
+	// Clear the local storage
+	//window.localStorage.clear()
+};

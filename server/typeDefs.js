@@ -1,10 +1,12 @@
-const {  gql } = require('apollo-server');
+const { gql } = require('apollo-server');
 const { GraphQLJSON, GraphQLJSONObject } = require('graphql-type-json');
 const typeDefs = gql(`
 type Query{
     allUsers:[User]!
+    currentUser(token:String!):User
     allPosts:[Post]!
     onePost(id:ID!):Post
+
 }
 scalar JSON
 
@@ -37,5 +39,5 @@ enum roleState{
     ADMIN
 }
 
-`)
-module.exports ={typeDefs}
+`);
+module.exports = { typeDefs };
