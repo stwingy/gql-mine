@@ -2,18 +2,9 @@ import React from 'react';
 import { gql, useQuery, useApolloClient } from '@apollo/client';
 const AuthStateContext = React.createContext();
 const AuthDispatchContext = React.createContext();
-const CURRENT_USER = gql`
-	query CurrentUser($token: String!) {
-		currentUser(token: $token) {
-			id
-			name
-			joinDate
-			role
-			email
-		}
-	}
-`;
+
 function authReducer(state, action) {
+	console.log(action)
 	switch (action.type) {
 		case 'login': {
 			return { ...state, isAuth: true, user: action.user };
@@ -27,11 +18,7 @@ function authReducer(state, action) {
 	}
 }
 function AuthProvider({ children }) {
-	const token = localStorage.getItem('token');
-	const { loading, error, data } = useQuery(CURRENT_USER, { variables: { token: token } });
-	if (loading) console.log('loading');
-	if (data) console.log('data', data);
-	const initialState = token && data ? { isAuth: true, user: data.currentUser } : { isAuth: false, user: null };
+const initialState ={isAuth:false,user:null}
 	const [ state, dispatch ] = React.useReducer(authReducer, initialState);
 	return (
 		<AuthStateContext.Provider value={state}>

@@ -37,11 +37,14 @@ function Signin() {
                 console.log(email,password)
                 signIn({variables:{email,password}})
                  .then(({data})=>{
-                 console.log("data",data)
-         localStorage.setItem('token',data.signIn.token)
-         dispatch({type:"login",user:data.createUser.user})
-      
-                 setState(initialState)
+                 if(data){
+                     console.log(data)
+                    localStorage.setItem('token',data.signIn.token)
+                    dispatch({type:"login",user:data.signIn.user})
+                 
+                            setState(initialState)
+                 }
+        
                
              })
                 .catch(err=>console.log(err))

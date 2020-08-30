@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {cache} from './cache.ts'
 import {ApolloProvider, ApolloClient,gql} from '@apollo/client'
+import { AuthProvider, useAuthState } from './AuthContext';
 import App from './App'
 
 // const typeDefs =gql`
@@ -20,7 +21,10 @@ const client = new ApolloClient({
   });
 ReactDOM.render(
     <ApolloProvider client={client}>
+      <AuthProvider>
       <App />
+      </AuthProvider>
+     
    </ApolloProvider>,
     document.getElementById('root')
   );

@@ -1,11 +1,19 @@
 import React from 'react';
 import { gql, useMutation } from "@apollo/client";
 const MAKE_POST =gql(`
-mutation MAKEPOST($body:JSON!,$title:String,$user:ID){
+mutation MakePost($body:JSON!,$title:String,$user:ID){
   makePost(body:$body,title:$title,user:$user){
-    id
     body
+    title
+    id
+   user{
+    name
+    email
+    joinDate
   }
+  }
+
+  
 }
 `)
 
@@ -18,8 +26,8 @@ export default function MakePost({post,title,user}) {
     },[post])
     const[makePost,{loading: mutationLoading,error: mutationError,...data}] =useMutation(MAKE_POST)
     function handleClick(){
-
-makePost({variables:{body,title,user}})
+console.log("hc",typeof user,body)
+makePost({variables:{body,title,user:user.id}})
 .then(({data})=>{
 console.log(data)
 }).catch(e=>console.log(e))

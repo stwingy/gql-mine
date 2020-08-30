@@ -18,7 +18,7 @@ function GetOnePost() {
     if (loading) return null;
     if (error) return `Error! ${error}`;
     if(data)myVar=draftToHtml(JSON.parse(data.onePost.body).post)
-    console.log(typeof myVar)
+   
     return (
         <div>
            {parse(myVar)}

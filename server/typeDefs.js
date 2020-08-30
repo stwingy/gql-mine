@@ -20,7 +20,7 @@ type Post{
     id:ID
     body:JSON!
     title:String
-    author:AuthUser
+    user:User
 }
 type User{
     id:ID!

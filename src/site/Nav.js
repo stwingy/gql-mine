@@ -41,6 +41,12 @@ function Nav() {
 				<Link to="/">
 					<span>H</span>ome
 				</Link>
+				<Link to="/post">
+					<span>P</span>ost
+				</Link>
+				<Link to="/posts">
+					<span>P</span>osts
+				</Link>
 				<Link to="/sign">
 					<span>S</span>ignup
 				</Link>

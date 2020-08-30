@@ -18,12 +18,12 @@ import { useAuthState, useAuthDispatch } from '../AuthContext';
 const ControlledEditor = () => {
 	const [ state, setState ] = useState({ editorState: EditorState.createEmpty() });
 	const [ title, setTitle ] = useState('');
-	const a = useAuthState();
+	const {isAuth,user}= useAuthState();
 	React.useEffect(
 		() => {
-			console.log('useruser', a);
+			console.log('useruser', user);
 		},
-		[ a ]
+		[ user]
 	);
 
 	const onEditorStateChange = (editorState) => {
@@ -38,8 +38,8 @@ const ControlledEditor = () => {
 
 	return (
 		<div>
-			<GetOnePost />
-			<form>
+		
+			<form style={{marginTop:"10em"}}>
 				<input type="text" name="title" placeholder="Title" onChange={handleTitle} value={title} />
 				<div style={{ maxHeight: '50vh', marginTop: '7em' }}>
 					<Editor
@@ -53,7 +53,7 @@ const ControlledEditor = () => {
 			<MakePost
 				post={convertToRaw(editorState.getCurrentContent())}
 				title={title}
-				user={'5f47a198fd5c6a1774ddd273'}
+				user={user}
 			/>
 		</div>
 	);
