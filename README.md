@@ -1,3 +1,35 @@
+input types
+## typeDefs
+input NewPersonInput{
+    name:String!
+}
+type Mutation{
+    newPerson(input:NewPersonInput):Person     //could call input something else
+}
+## resolvers
+Mutation newPerson(parent,args,ctx){        //check parent may store stuff on server
+    const name = args.input.name
+    return{name}
+}
+
+## playground
+mutation NewPerson($input:NewPersonInput){
+    newPerson(input:$input){
+        name
+    }
+}
+
+# query variables
+{
+    "input":{
+        "name":"john"
+    }
+}
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
