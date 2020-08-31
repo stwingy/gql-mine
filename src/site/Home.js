@@ -2,50 +2,21 @@ import React from 'react'
 import './Home.css'
 import TitleSpinner from './TitleSpinner'
 function Home() {
-//   let spinVar = true
-//     const mq = window.matchMedia('(max-width: 520px)');
-//     let myT;
-//    let myArray =[]
-//     function clearAll(){
-//         for(let i=0;i<myArray.length;i++){
-//             clearInterval(myArray[i])
-           
-//         }
-//     }
-// function startInterval() {
-   
-// 	myT = setInterval(() => {
-//         clearAll()
-//         myArray =myArray.slice()
-//         myArray.push(myT)
-//        if(spinVar !==null){
-           
-//            spinVar =!spinVar
-
-//        }
-//      console.log(myArray)
-// 	}, 10000);
-// }
-// function WidthChange(mq) {
-// 	if (mq.matches) {
-// 		spinVar = null
-// 		clearAll()
-// 	} else {
-// 		startInterval();
-// 	}
-// }
-
-// if (matchMedia) {
-// 	const mq = window.matchMedia('(max-width: 520px)');
-// 	mq.addListener(WidthChange);
-// 	WidthChange(mq);
-// }
-
-// if(!myT)startInterval()
+    const [loaded,setLoaded] =React.useState(false)
+    const imageToLoad = new Image();
+    imageToLoad.src = '/images/background1.png'
+   if(!loaded) {imageToLoad.onload = () =>{
+      setLoaded(true)
+      
+     
+  }}
     return (
         <div>
         <TitleSpinner  />
-    <div className="background-holder"></div>
+    <div className={`${loaded ? "background-holder1":"background-holder"}` } style={{
+          opacity: !loaded ? 0.2 : .8,
+          transition: "opacity 1s linear"
+        }}></div>
     <div className="hello">
         <div className="little-boy">
             <img src="/images/boy.png" alt="boy logo"/>
