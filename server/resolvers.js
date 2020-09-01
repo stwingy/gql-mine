@@ -8,6 +8,8 @@ const resolvers = {
 		} },
 	Query: {
 		allUsers: async (parent, args, ctx) => {
+			console.log("ctx",ctx)
+			console.log(parent)
 			const users = await ctx.User.find();
 			return users;
 		},
@@ -21,16 +23,17 @@ const resolvers = {
 		}
 	},
 	Mutation: {
-		makePost: async(parent,{body,title,user},{Post,User})=>{
-			console.log(user,typeof user)
+		makePost:authenticated( async(parent,{body,title,user},{Post,User})=>{
+		
 			const u= await User.findById(user)
-		console.log(u,typeof u)
+		
 const p = await new Post({body,title,user}).save()
 
-return {body,title,id:p.id,user:{name:u.name,role:u.role,email:u.email,joinDate:u.joinDate}}
-		},
+return {body,title,id:p.id,user:{name:u.name,role:u.role,email:u.email}}
+		}),
 		createUser: async (parent, { name, email, password }, { User, createToken }) => {
 			const checkUser = await User.findOne({ email });
+			
 			if (checkUser) {
 				throw new Error('User already exists');
 			}
@@ -40,17 +43,17 @@ return {body,title,id:p.id,user:{name:u.name,role:u.role,email:u.email,joinDate:
 				password
 			}).save();
 			const token = createToken({ id: user.id, role: user.role });
-			console.log(token);
+		
 			return { token, user };
         },
         signIn:async(parent, {email,password}, {User, createToken})=> {
             const user = await User.findOne({email})
-      console.log("user",user,"email",email)
+      
             if (!user) {
               throw new Error('nope')  
             }
       
-            const token = createToken(user)
+            const token = createToken({ id: user.id, role: user.role })
             return {token, user}
           }
 	}

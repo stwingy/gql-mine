@@ -4,12 +4,14 @@ require('dotenv').config({path:'variables.env'})
 
 const createToken = ({id, role}) => jwt.sign({id, role }, process.env.SECRET)
 
-const getUserFromToken =async (token) => {
+const getUserFromToken = async(token) => {
   try {
     const user =  jwt.verify(token, process.env.SECRET)
-    
-   const newUser =await User.findOne({id: user.id})
-   return newUser
+  console.log(user)
+  
+const u = await User.findById(user.id).exec()
+console.log(u)
+return u
   } catch (e) {
     return null
   }

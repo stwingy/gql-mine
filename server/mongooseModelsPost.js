@@ -7,10 +7,7 @@ const PostSchema = new Schema({
 		type: Schema.Types.Mixed,
 		default: 'POST'
 	},
-	postDate: {
-		type: Date,
-		default: Date.now
-	},
+
 	title: {
     type: String,
     required:true
@@ -19,7 +16,7 @@ const PostSchema = new Schema({
 		type: Schema.Types.ObjectId ,
 		ref: 'User'
 	}
-});
+},{ timestamps: { createdAt: 'postDate' } });
 
 // UserSchema.pre('save', function(next){
 //     if(!this.isModified('password')){

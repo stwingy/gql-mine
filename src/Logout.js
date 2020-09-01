@@ -15,6 +15,7 @@ function Logout() {
 		dispatch({type:'logout'});
 		//isLoggedInVar(false)
 	history.push("/")
+	client.clearStore()
 	};
 	return (
 		<div>

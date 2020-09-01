@@ -29,6 +29,7 @@ type User{
     password:String!
     role:roleState
     joinDate:String
+   
 }
 type AuthUser {
     token: String!

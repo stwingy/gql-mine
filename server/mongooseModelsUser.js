@@ -25,7 +25,7 @@ const UserSchema = new Schema({
     default:Date.now
 }
   
-})
+},{ timestamps: { createdAt: 'joinDate' } })
 
 // UserSchema.pre('save', function(next){
 //     if(!this.isModified('password')){

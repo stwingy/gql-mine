@@ -11,7 +11,7 @@ mutation CreateUser($name:String!,$email:String!,$password:String!){
         name
         email
         role
-        joinDate
+       joinDate
     }
   }
 }`)
