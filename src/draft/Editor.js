@@ -39,7 +39,7 @@ const ControlledEditor = () => {
 	return (
 		<div>
 		
-			<form style={{marginTop:"10em"}}>
+			<form style={{marginTop:"1em"}}>
 				<input type="text" name="title" placeholder="Title" onChange={handleTitle} value={title} />
 				<div style={{ maxHeight: '50vh', marginTop: '7em' }}>
 					<Editor

@@ -21,6 +21,7 @@ type Post{
     body:JSON!
     title:String
     user:User
+    postDate:String
 }
 type User{
     id:ID!
