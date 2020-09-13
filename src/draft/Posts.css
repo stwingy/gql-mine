@@ -1,4 +1,9 @@
-div.postsholder{
-    margin-top: 5em;
-    text-align: center;
+div.postsholder {
+	margin-top: 5em;
+	text-align: center;
+}
+div.postsholder span {
+	color: var(--main-heading-color);
+}
+span.s1 {
 }

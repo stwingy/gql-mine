@@ -13,7 +13,7 @@ Mutation newPerson(parent,args,ctx){        //check parent may store stuff on se
 }
 
 ## playground
-mutation NewPerson($input:NewPersonInput){
+mutation NewPerson($input:NewPersonInput){     //scott calls all inputs input
     newPerson(input:$input){
         name
     }
@@ -25,7 +25,19 @@ mutation NewPerson($input:NewPersonInput){
         "name":"john"
     }
 }
-
+-------------------------
+multiple queries in one request (playground) use aliases
+{
+    helloWorld(message:"123"){
+        message
+    }
+    one:helloWorld(message:"123"){
+        message
+    }
+    two:helloWorld(message:"123"){
+        message
+    }
+}
 
 
 

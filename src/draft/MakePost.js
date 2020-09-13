@@ -17,7 +17,7 @@ mutation MakePost($body:JSON!,$title:String,$user:ID){
 }
 `)
 
-export default function MakePost({post,title,user}) {
+export default function MakePost({post,title,user,hidePost}) {
   console.log(post,title,user)
     const initialState = {}
     const [body,setBody] = React.useState(initialState)
@@ -30,6 +30,7 @@ console.log("hc",typeof user,body)
 makePost({variables:{body,title,user:user.id}})
 .then(({data})=>{
 console.log(data)
+hidePost()
 }).catch(e=>console.log(e))
     }
   return (

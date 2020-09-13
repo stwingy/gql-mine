@@ -1,5 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server');
-
+//see md file for more
 var interfaceEG =`
 {
 	tablet(input:ipad){

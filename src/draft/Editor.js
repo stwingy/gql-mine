@@ -15,15 +15,15 @@ import { useAuthState, useAuthDispatch } from '../AuthContext';
 // }
 // `);
 
-const ControlledEditor = () => {
+const ControlledEditor = ({ hidePost }) => {
 	const [ state, setState ] = useState({ editorState: EditorState.createEmpty() });
 	const [ title, setTitle ] = useState('');
-	const {isAuth,user}= useAuthState();
+	const { isAuth, user } = useAuthState();
 	React.useEffect(
 		() => {
 			console.log('useruser', user);
 		},
-		[ user]
+		[ user ]
 	);
 
 	const onEditorStateChange = (editorState) => {
@@ -38,10 +38,9 @@ const ControlledEditor = () => {
 
 	return (
 		<div>
-		
-			<form style={{marginTop:"1em"}}>
+			<form style={{ marginTop: '1em' }}>
 				<input type="text" name="title" placeholder="Title" onChange={handleTitle} value={title} />
-				<div style={{ maxHeight: '50vh', marginTop: '7em' }}>
+				<div style={{ maxHeight: '60vh', marginTop: '2em' }}>
 					<Editor
 						editorState={editorState}
 						wrapperClassName="demo-wrapper"
@@ -54,6 +53,7 @@ const ControlledEditor = () => {
 				post={convertToRaw(editorState.getCurrentContent())}
 				title={title}
 				user={user}
+				hidePost={hidePost}
 			/>
 		</div>
 	);

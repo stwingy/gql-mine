@@ -1,9 +1,10 @@
 import React from 'react';
-import Modal from '../modal/Modal'
-import Editor from '../draft/Editor.js'
+import Modal from '../modal/Modal';
+import Editor from '../draft/Editor.js';
 import './Posts.css';
 import { gql, useQuery } from '@apollo/client';
 import draftToHtml from 'draftjs-to-html';
+import { useAuthState } from '../AuthContext';
 const parse = require('html-react-parser');
 const ALL_POSTS = gql`
 	query AllPosts {
@@ -22,28 +23,40 @@ const ALL_POSTS = gql`
 `;
 
 function Posts() {
-    const [showPost,setShowPost] =React.useState(false)
-    function handleClick(){
-        setShowPost(true)
-    }
-    function hidePost(){
-        setShowPost(false)
-    }
-	const { data, loading, error } = useQuery(ALL_POSTS);
+	const { isAuth } = useAuthState();
+	const [ showPost, setShowPost ] = React.useState(false);
+	function handleClick() {
+		setShowPost(true);
+	}
+	function hidePost() {
+		setShowPost(false);
+		refetch();
+	}
+	const { data, loading, error, refetch } = useQuery(ALL_POSTS);
 	if (loading) return <div>...loading</div>;
 	if (error) return <div>error</div>;
 	console.log(data.allPosts);
 	return (
 		<div>
-            <Modal show={showPost} onCancel ={hidePost}><Editor/></Modal>
-            <button style ={{marginTop:"5em"}}onClick ={handleClick}>POST</button>
+			<Modal show={showPost} onCancel={hidePost}>
+				<Editor hidePost={hidePost} />
+			</Modal>
+			<button disabled={!isAuth} style={{ marginTop: '10em' }} onClick={handleClick}>
+				POST
+			</button>
 			{data.allPosts.map((post) => (
 				<div className="postsholder" key={post.id}>
-					<h2>{post.title}</h2>
+					<h3>{post.title}</h3>
 					<div>
-						<div>{parse(draftToHtml(JSON.parse(post.body)))}
-						{post.user.name}
-						{new Date(+post.postDate).toLocaleString()}</div>
+						<div>
+							{parse(draftToHtml(JSON.parse(post.body)))}
+							<p>
+								Posted by
+								<span className="s1">{` ${post.user.name} `}</span>
+								At
+								<span className="s2">{` ${new Date(+post.postDate).toLocaleString()}`}</span>
+							</p>
+						</div>
 					</div>
 				</div>
 			))}
