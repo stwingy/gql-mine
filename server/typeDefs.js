@@ -15,6 +15,7 @@ type Mutation{
     createUser(name:String!,email:String!,password:String!):AuthUser
     signIn(email:String!,password:String!):AuthUser
     makePost(body:JSON!,title:String,user:ID):Post
+    deletePost(id:ID!,user:ID!):Post
 }
 type Post{
     id:ID

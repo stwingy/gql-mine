@@ -5,6 +5,8 @@ import './Posts.css';
 import { gql, useQuery } from '@apollo/client';
 import draftToHtml from 'draftjs-to-html';
 import { useAuthState } from '../AuthContext';
+
+import DeletePost from './DeletePost'
 const parse = require('html-react-parser');
 const ALL_POSTS = gql`
 	query AllPosts {
@@ -56,6 +58,7 @@ function Posts() {
 								At
 								<span className="s2">{` ${new Date(+post.postDate).toLocaleString()}`}</span>
 							</p>
+							<DeletePost id={post.id} refetch={refetch} />
 						</div>
 					</div>
 				</div>
